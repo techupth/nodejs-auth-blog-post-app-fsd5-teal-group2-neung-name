@@ -1,13 +1,18 @@
 import { useState } from "react";
+import { useAuth } from "../contexts/authentication";
+import { Link } from "react-router-dom";
 
 function LoginPage() {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
+  const { login } = useAuth();
 
   const handleSubmit = (event) => {
     event.preventDefault();
-    // 🐨 Todo: Exercise #4
-    //  นำ Function `login` ใน AuthContext มา Execute ใน Event Handler ตรงนี้
+    login({
+      username,
+      password,
+    });
   };
 
   return (
@@ -44,9 +49,17 @@ function LoginPage() {
             />
           </label>
         </div>
+        <div className="flex-button">
+          <div className="form-actions">
+            <Link to="/register">
+              {" "}
+              <button type="button">Register</button>
+            </Link>
+          </div>
 
-        <div className="form-actions">
-          <button type="submit">Login</button>
+          <div className="form-actions">
+            <button type="submit">Login</button>
+          </div>
         </div>
       </form>
     </div>

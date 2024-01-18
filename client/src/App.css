@@ -212,6 +212,11 @@ form h1 {
   justify-content: flex-end;
 }
 
+.flex-button {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
 /* general elements */
 button {
   cursor: pointer;
